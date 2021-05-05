@@ -1,0 +1,11 @@
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "health,info"
+info:
+  app:
+    encoding: "UTF-8"
+    java:
+      source: "8"
+      target: "8"
