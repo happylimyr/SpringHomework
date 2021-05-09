@@ -1,7 +1,7 @@
 package com.nulp.bat.travelagency.service.impl;
 
 import com.nulp.bat.travelagency.dto.PersonalDataDto;
-import com.nulp.bat.travelagency.exeption.PersonalDataNotFoundException;
+import com.nulp.bat.travelagency.exeption.NotFoundException;
 import com.nulp.bat.travelagency.model.PersonalData;
 import com.nulp.bat.travelagency.repository.PersonalDataRepository;
 import com.nulp.bat.travelagency.service.PersonalDataService;
@@ -20,7 +20,7 @@ public class PersonalDataServiceImpl implements PersonalDataService {
     public PersonalDataDto getPersonalData(String email) {
         log.info("getting user from database by email {}", email);
         PersonalData personalData = personalDataRepository.findByEmail(email)
-                .orElseThrow(PersonalDataNotFoundException::new);
+                .orElseThrow(NotFoundException::new);
         return mapPersonalDataToPersonalDataDto(personalData);
     }
 
@@ -37,7 +37,7 @@ public class PersonalDataServiceImpl implements PersonalDataService {
         log.info("updating personal data in database: {}", personalDataDto);
         PersonalData personalData = mapPersonalDataDtoToPersonalData(personalDataDto);
         PersonalData personalDataFromDB = personalDataRepository.findByEmail(email)
-                .orElseThrow(PersonalDataNotFoundException::new);
+                .orElseThrow(NotFoundException::new);
         personalDataRepository.delete(personalDataFromDB);
         personalData = personalDataRepository.save(personalData);
         return mapPersonalDataToPersonalDataDto(personalData);
@@ -47,7 +47,7 @@ public class PersonalDataServiceImpl implements PersonalDataService {
     public void deletePersonalData(String email) {
         log.info("deleting user in database by email {}", email);
         PersonalData personalData = personalDataRepository.findByEmail(email)
-                .orElseThrow(PersonalDataNotFoundException::new);
+                .orElseThrow(NotFoundException::new);
         personalDataRepository.delete(personalData);
     }
 

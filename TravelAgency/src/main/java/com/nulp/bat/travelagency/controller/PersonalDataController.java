@@ -4,12 +4,9 @@ import com.nulp.bat.travelagency.api.PersonalDataApi;
 import com.nulp.bat.travelagency.controller.assembler.PersonalDataAssembler;
 import com.nulp.bat.travelagency.controller.model.PersonalDataModel;
 import com.nulp.bat.travelagency.dto.PersonalDataDto;
-import com.nulp.bat.travelagency.model.PersonalData;
-import com.nulp.bat.travelagency.repository.PersonalDataRepository;
 import com.nulp.bat.travelagency.service.PersonalDataService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
