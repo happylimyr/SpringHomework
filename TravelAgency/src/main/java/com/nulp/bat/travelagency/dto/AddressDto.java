@@ -1,6 +1,7 @@
 package com.nulp.bat.travelagency.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.nulp.bat.travelagency.model.City;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +16,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class AddressDto {
 
-    @NotNull(message = "Should by not null")
+    @NotNull(message = "Address Should by not null")
     private String name;
+    @NotNull(message = "City Should by not null")
+    private City city;
 }

@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -22,6 +25,12 @@ public class PersonalDataServiceImpl implements PersonalDataService {
         PersonalData personalData = personalDataRepository.findByEmail(email)
                 .orElseThrow(NotFoundException::new);
         return mapPersonalDataToPersonalDataDto(personalData);
+    }
+
+    @Override
+    public List<PersonalDataDto> getAll() {
+        return personalDataRepository.findAll().stream().map(this::mapPersonalDataToPersonalDataDto).collect(Collectors.toList());
+
     }
 
     @Override

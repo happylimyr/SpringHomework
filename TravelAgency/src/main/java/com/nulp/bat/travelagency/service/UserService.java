@@ -3,12 +3,22 @@ package com.nulp.bat.travelagency.service;
 
 import com.nulp.bat.travelagency.dto.UserDto;
 
+import java.util.List;
+
 public interface UserService {
+
     UserDto getUser(String login);
 
-    UserDto createPersonalData(UserDto userDto);
+    List<UserDto> getAllUser();
 
-    UserDto updatePersonalData(String login, UserDto userDto);
+    UserDto createUser(UserDto userDto);
 
-    void deletePersonalData(String login);
+    UserDto updateUser(String login, UserDto userDto);
+
+    void deleteUser(String login);
+
+    void deleteById(Long idUser);
+
+
+
 }

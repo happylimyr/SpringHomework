@@ -1,9 +1,8 @@
 package com.nulp.bat.travelagency.api;
 
 import com.nulp.bat.travelagency.controller.model.AddressModel;
-import com.nulp.bat.travelagency.controller.model.PersonalDataModel;
+import com.nulp.bat.travelagency.controller.model.TourTypeModel;
 import com.nulp.bat.travelagency.dto.AddressDto;
-import com.nulp.bat.travelagency.dto.PersonalDataDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -13,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+
 @Api(tags = "User management API")
 @RequestMapping("/api/v1/address")
 public interface AddressApi {
@@ -24,6 +25,11 @@ public interface AddressApi {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/{name}")      //address -> name
     AddressModel getAddress(@PathVariable String name);
+
+    @ApiOperation("Get all ")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping
+    List<AddressModel> getAll();
 
     @ApiOperation("Create address")
     @ResponseStatus(HttpStatus.CREATED)

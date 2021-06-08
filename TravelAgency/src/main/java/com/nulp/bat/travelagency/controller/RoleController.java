@@ -9,11 +9,15 @@ import com.nulp.bat.travelagency.service.RoleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class RoleController implements RoleApi {
 
     private final RoleService roleService;
@@ -24,6 +28,12 @@ public class RoleController implements RoleApi {
         log.info("getRole: role {}", role);
         RoleDto roles = roleService.getRole(role);
         return roleAssembler.toModel(roles);
+    }
+
+    @Override
+    public List<RoleModel> getAll() {
+        List<RoleDto> addressDtoList = roleService.getAll();
+        return roleAssembler.modelList(addressDtoList);
     }
 
     @Override

@@ -2,10 +2,16 @@ package com.nulp.bat.travelagency.controller.assembler;
 
 import com.nulp.bat.travelagency.controller.AddressController;
 import com.nulp.bat.travelagency.controller.model.AddressModel;
+import com.nulp.bat.travelagency.controller.model.UserModel;
 import com.nulp.bat.travelagency.dto.AddressDto;
+import com.nulp.bat.travelagency.dto.UserDto;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -15,6 +21,10 @@ public class AddressAssembler extends RepresentationModelAssemblerSupport<Addres
 
     public AddressAssembler() {
         super(AddressController.class, AddressModel.class);
+    }
+
+    public List<AddressModel> modelList(List<AddressDto> entities) {
+        return StreamSupport.stream(entities.spliterator(), true).map(this::toModel).collect(Collectors.toList());
     }
 
     @Override

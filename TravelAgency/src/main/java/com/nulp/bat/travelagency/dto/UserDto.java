@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -18,15 +18,15 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class UserDto {
 
-
-    @NotNull(message = "should by not null")
+    @NotNull(message = "login should by not null")
+    @Column(unique = true)
     private String loginUser;
-    @NotNull(message = "should by not null")
+    @NotNull(message = "pass should by not null")
     private String passwordUser;
-    @NotNull(message = "should by not null")
+    @NotNull(message = "pers.data should by not null")
     private PersonalData personalData;
-    @NotNull(message = "should by not null")
-    private String role;
-    @NotNull(message = "should by not null")
+    @NotNull(message = "role should by not null")
+    private Role role;
+    @NotNull(message = "active status should by not null")
     private Integer activeStatus;
 }

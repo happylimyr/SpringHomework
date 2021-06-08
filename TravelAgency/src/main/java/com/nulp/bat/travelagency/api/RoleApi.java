@@ -1,5 +1,6 @@
 package com.nulp.bat.travelagency.api;
 import com.nulp.bat.travelagency.controller.model.RoleModel;
+import com.nulp.bat.travelagency.controller.model.TourTypeModel;
 import com.nulp.bat.travelagency.dto.RoleDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -10,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+
 @Api(tags = "User management API")
 @RequestMapping("/api/v1/role")
 public interface RoleApi {
@@ -21,6 +24,11 @@ public interface RoleApi {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/{role}")
     RoleModel getRole(@PathVariable String role);
+
+    @ApiOperation("Get all ")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping
+    List<RoleModel> getAll();
 
     @ApiOperation("Create role")
     @ResponseStatus(HttpStatus.CREATED)

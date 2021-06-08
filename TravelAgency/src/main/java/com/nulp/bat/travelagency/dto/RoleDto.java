@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoleDto {
-    @NotNull(message = "should be not null")
+
+    @NotNull(message = "role role should be not null")
     private String role;
 }

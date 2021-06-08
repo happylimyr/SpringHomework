@@ -21,7 +21,7 @@ import java.util.List;
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @JsonIgnore
     private Long idRole;
     private String role;

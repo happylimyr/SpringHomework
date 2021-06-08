@@ -5,6 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class TravelAgencyApplication {
+	/*
+	*
+	*  tourinfo
+	*
+	* */
 
 	public static void main(String[] args) {
 		SpringApplication.run(TravelAgencyApplication.class, args);

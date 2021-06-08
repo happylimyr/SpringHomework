@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class PersonalDataDto {
 
     private String firstName;
-    @NotNull(message = "should by not null")
+    @NotNull(message = "last name should by not null")
     private String lastName;
     @NotNull
     @Email

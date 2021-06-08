@@ -6,9 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import javax.persistence.*;
 
 @Entity
@@ -20,7 +18,7 @@ import javax.persistence.*;
 public class PersonalData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @JsonIgnore
     private Long idPersonalData;
     private String firstName;
@@ -33,4 +31,7 @@ public class PersonalData {
     @JsonIgnore
 //    private List<User> userList = new ArrayList<>();
     private User user;
+//
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "personalDataSet")
+//    private Set<Order> orderSet = new HashSet<>();
 }
